@@ -1,7 +1,7 @@
 module Json.Encode exposing
   ( Value
   , encode
-  , string, int, float, bool, null
+  , string, int, float, bool, null, date
   , list, array
   , object
   )
@@ -22,6 +22,7 @@ module Json.Encode exposing
 -}
 
 import Array exposing (Array)
+import Date exposing (Date)
 import Native.Json
 
 
@@ -82,6 +83,12 @@ bool =
 null : Value
 null =
     Native.Json.encodeNull
+
+
+{-|-}
+date : Date -> Value
+date =
+    Native.Json.identity
 
 
 {-|-}

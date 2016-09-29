@@ -1,7 +1,7 @@
 module Json.Decode exposing  -- where
   ( Decoder, Value
   , decodeString, decodeValue
-  , string, int, float, bool, null
+  , string, int, float, bool, null, date
   , list, array
   , tuple1, tuple2, tuple3, tuple4, tuple5, tuple6, tuple7, tuple8
   , (:=), at
@@ -41,6 +41,7 @@ decoding operation that will either produce a value of type `a`, or fail.
 
 
 import Array exposing (Array)
+import Date exposing (Date)
 import Dict exposing (Dict)
 import Json.Encode as JsEncode
 import List
@@ -305,6 +306,11 @@ int =
 bool : Decoder Bool
 bool =
   Native.Json.decodePrimitive "bool"
+
+
+date : Decoder Date
+date =
+  Native.Json.decodePrimitive "date"
 
 
 {-| Extract a List from a JS array.

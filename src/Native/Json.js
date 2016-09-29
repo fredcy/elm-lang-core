@@ -359,6 +359,11 @@ function runHelp(decoder, value)
 				? ok(decoder.value)
 				: badPrimitive('null', value);
 
+	        case 'date':
+			return (value instanceof Date)
+				? ok(value)
+				: badPrimitive('date', value);
+
 		case 'value':
 			return ok(value);
 
